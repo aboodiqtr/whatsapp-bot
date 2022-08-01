@@ -178,6 +178,7 @@ Module({
     desc: Lang.TAGALL_DESC
 }, (async (message, match) => {
     if (!message.jid.endsWith('@g.us')) return await message.sendMessage(Lang.GROUP_COMMAND)
+    if (!admin) return await message.sendReply(Lang.NOT_ADMIN)
     var group = await message.client.groupMetadata(message.jid)
     var jids = [];
     var mn = '';
